@@ -1,15 +1,37 @@
+:root {
+    --bg-color: #f4f4f4;
+    --container-bg: #fff;
+    --text-color: #333;
+    --input-border: #ddd;
+    --li-border: #eee;
+    --input-bg: #fff;
+    --input-text: #000;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #ffffff;
+    --input-border: #444;
+    --li-border: #333;
+    --input-bg: #2d2d2d;
+    --input-text: #fff;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
-    background-color: #fff;
+    background-color: var(--container-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +40,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
 }
 
 .input-group {
@@ -29,7 +51,9 @@ h1 {
 #todo-input {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
     border-radius: 4px 0 0 4px;
     outline: none;
 }
@@ -53,12 +77,13 @@ ul {
 }
 
 li {
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
+    background-color: var(--container-bg);
+    border-bottom: 1px solid var(--li-border);
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--text-color);
 }
 
 li:last-child {
@@ -82,4 +107,17 @@ li:last-child {
 .completed {
     text-decoration: line-through;
     color: #888;
+}
+
+#theme-toggle {
+    margin-bottom: 15px;
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
