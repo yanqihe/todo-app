@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteBtn.textContent = 'Delete';
             deleteBtn.className = 'delete-btn';
             deleteBtn.onclick = function() {
-                todoList.removeChild(li);
+                li.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => {
+                    todoList.removeChild(li);
+                }, 300);
             };
 
             li.appendChild(span);
